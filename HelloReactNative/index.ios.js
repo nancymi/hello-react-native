@@ -114,6 +114,51 @@ class FlexDimensionsBasics extends Component {
     }   
 }
 
+class FlexDirectionBasics extends Component {
+    render()  {
+        return (
+            <View style={{flex: 1, flexDirection: 'row'}}>
+                <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
+                <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
+                <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
+            </View>
+        );    
+    }   
+}
+
+class JustifyContentBasics extends Component {
+    render() {
+        return (
+            <View style={{
+                flex: 1,
+                flexDirection: 'row',
+                justifyContent: 'center',
+            }}>
+                <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
+                <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
+                <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
+            </View>
+        );
+    }
+}
+
+class AlignItemsBasics extends Component {
+    render() {
+        return (
+            <View style={{
+                flex: 1,
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}>
+                <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
+                <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
+                <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
+            </View>
+        );
+    }
+}
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -160,4 +205,4 @@ export default class HelloReactNative extends Component {
   }
 }
 
-AppRegistry.registerComponent('HelloReactNative', () => FlexDimensionsBasics);
+AppRegistry.registerComponent('HelloReactNative', () => AlignItemsBasics);
