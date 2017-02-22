@@ -293,4 +293,66 @@ export default class HelloReactNative extends Component {
   }
 }
 
+getMoviesFromApiAsync()
+{
+    return fetch('http://mywebsite.com/endpoint', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            firstParam: 'yourValue',
+            secondParam: 'yourOtherValue'
+        })
+    })
+        .then((response) => response.json())
+        .then((responseJson) => {
+            return responseJson.movies;
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+}
+
+async getMoviesFromApi() {
+    try {
+        let response = await fetch("http://facebook.github.io/react-native/movies.json");
+        let responseJson = await response.json();
+        response responseJson.movies;
+    } catch(error) {
+        console.error(error);
+    }
+}
+
+var request = new XMLHttpRequest();
+request.onreadystatechange = (e) => {
+    if (request.readyState !== 4) {
+        return;
+    }
+
+    if (request.status === 200) {
+        console.log('success', request.responseText);
+    } else {
+        console.warn('error');
+    }
+};
+
+request.open('GET', 'https://mywebsite.com/endpoint/');
+request.send();
+
+var ws = new WebSocket('ws://host.com/path');
+
+ws.onopen = () => {
+    ws.send('something');
+};
+
+ws.onmessage = (e) => {
+    console.log(e.data);
+}
+
+ws.onerror = (e) => {
+    console.log(e.code, e.reason);
+}
+
 AppRegistry.registerComponent('HelloReactNative', () => ListViewBasics);
