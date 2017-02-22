@@ -15,6 +15,7 @@ import {
     View,
     ListView,
     ScrollView,
+    Navigator,
     Image } from 'react-native';
 
 class Bananas extends Component {
@@ -233,6 +234,35 @@ class YoDawyApp extends Component {
   }
 }
 
+class NavigatorApp extends Component {
+  render() {
+    return (
+        <Navigator
+          initialRoute={{ title: 'My Initial Scene', index: 0 }}
+          renderScene={(route, navigator) => {
+            <MyScene
+              title={route.title}
+
+              onForward={ () => {
+                const nextIndex = route.index + 1;
+                navigator.push({
+                  title: 'Scene ' + nextIndex,
+                  index: nextIndex,
+                });
+              }}
+
+              onBack={ () => {
+                if (router.index > 0) {
+                  navigator.pop();
+                }
+              } }
+            />
+          }}
+        />
+    );
+  }
+}
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -279,4 +309,4 @@ export default class HelloReactNative extends Component {
     }
 }
 
-AppRegistry.registerComponent('HelloReactNative', () => YoDawyApp);
+AppRegistry.registerComponent('HelloReactNative', () => NavigatorApp);
