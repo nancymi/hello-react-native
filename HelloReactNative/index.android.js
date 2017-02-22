@@ -5,6 +5,7 @@
  */
 
 import React, { Component } from 'react';
+import MyScene from './MyScene';
 
 import {
     AppRegistry,
@@ -224,6 +225,14 @@ class IScrolledDownAndWhatHappenedNextShockedMe extends Component {
     }
 }
 
+class YoDawyApp extends Component {
+  render() {
+    return (
+        <MyScene/>
+    );
+  }
+}
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -270,4 +279,4 @@ export default class HelloReactNative extends Component {
     }
 }
 
-AppRegistry.registerComponent('HelloReactNative', () => IScrolledDownAndWhatHappenedNextShockedMe);
+AppRegistry.registerComponent('HelloReactNative', () => YoDawyApp);
